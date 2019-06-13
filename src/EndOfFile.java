@@ -1,18 +1,22 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class EndOfFile {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-       /* for (int i = 1; sc.hasNext(); i++) {
-            String str = sc.nextLine();
-            System.out.println(i+" "+str);
-        }*/
+        Scanner outerScanner = new Scanner(System.in);
 
-        int i = 0;
-        while (sc.hasNext()){
-            System.out.println((i+1)+" "+sc.nextLine());
-            i++;
+        while (outerScanner.hasNextLine()){
+            List<String> lines = new ArrayList<>();
+            Scanner innerScanner = new Scanner(outerScanner.nextLine());
+
+            while (innerScanner.hasNext()) {
+                lines.add(innerScanner.next());
+            }
+            innerScanner.close();
+            System.out.println(lines);
         }
+        outerScanner.close();
     }
 }

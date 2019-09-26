@@ -25,8 +25,29 @@ public class MultipleOccurance {
         System.out.println(list.get(0));
     }
 
+
+    private static  void getUnique1st(String string){
+        String[] arr = string.split("");
+        List list = Arrays.asList(arr);
+        System.out.println(list);
+        List uniqueList = new LinkedList();
+
+        for (String str :
+                arr) {
+            int count = Collections.frequency(list, str);
+
+            if (count==1){
+                uniqueList.add(str);
+            }
+        }
+
+        System.out.println(uniqueList.get(0));
+
+    }
+
     public static void main(String[] args) {
-        MultipleOccurance.get1stOccuranceOfUniqueCharacter("Helloworld");
+        getUnique1st("HelloHi");
+     //   MultipleOccurance.get1stOccuranceOfUniqueCharacter("Helloworld");
 
         //Set:
         System.out.println();

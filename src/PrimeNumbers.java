@@ -68,7 +68,7 @@ public class PrimeNumbers {
     }
 
     public static void main(String[] args) {
-        //  System.out.println(PrimeNumbers.checkForPrime(7));
+          System.out.println(PrimeNumbers.checkForPrime(4));
 
         PrimeNumbers.getRangeOfPrimeNumbers(0, 20);
     }

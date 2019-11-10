@@ -1,4 +1,4 @@
-public class InBetweenNumbers {
+public class InBetweenNumbersJava {
 
     private static void findRange(int n1, int n2){
         while (n1<=n2){

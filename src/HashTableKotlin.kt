@@ -4,7 +4,7 @@ class HashTableKotlin {
         var next: HashEntry? = null
     }
 
-    var INITIAL_SIZE = 10
+    private var INITIAL_SIZE = 10
     var data = arrayOfNulls<HashEntry>(INITIAL_SIZE)
 
     fun getIndex(key: String):Int{

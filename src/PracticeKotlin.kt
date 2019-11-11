@@ -1,3 +1,9 @@
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import kotlin.collections.HashSet
+import kotlin.collections.LinkedHashMap
+
 /* Check the String rotation:*/
 fun checkStringRotation(originalString: String, rotationCheckString: String): Boolean {
     if (originalString.length != rotationCheckString.length)
@@ -162,6 +168,18 @@ fun checkLambda2(a: Int, b: Int, lambda: (Int, Int) -> Int) {
     println(result)
 }
 
+fun checkClosure(a: Int, b: Int, lambda: (Int, Int) -> Unit) {
+    lambda(a, b)
+}
+
+fun reverseStringLambda(string: String, lambda: (String) -> String) {
+    println(lambda(string))
+}
+
+fun reverse2(string: String, lambda: (String) -> Unit) {
+    lambda(string)
+}
+
 fun main(args: Array<String>) {
     // println("Hello")
 //    println(checkStringRotation("India Vs England ","England India Vs "))
@@ -177,17 +195,76 @@ fun main(args: Array<String>) {
 //    println(reverseAStringRecursively("...hello..."))
 //    println(reverseStringWithLoop("...hello..."))
 
-    val myLambda = { s: Int -> println(s) }
+    /* val myLambda = { s: Int -> println(s) }
 
-    checkLambdaUse(2, 3, myLambda)
-    checkLambdaUse(4, 6, { s: Int -> println(s) })
+     checkLambdaUse(2, 3, myLambda)
+     checkLambdaUse(4, 6, { s: Int -> println(s) })
 
-    checkLambdaUse(7, 8) { s: Int -> println(s) }
+     checkLambdaUse(7, 8) { s: Int -> println(s) }
 
-    var myLambda2: (Int, Int) -> Int = { x, y -> x + y }
-    checkLambda2(10, 11, myLambda2)
-    checkLambda2(2, 22) { x, y -> x + y }
-    checkLambda2(12, 8, { x, y -> x + y })
+     var myLambda2: (Int, Int) -> Int = { x, y -> x + y }
+     checkLambda2(10, 11, myLambda2)
+     checkLambda2(2, 22) { x, y -> x + y }
+     checkLambda2(12, 8, { x, y -> x + y })
+     */
+
+    /*  var result: Int = 0
+      checkClosure(33, 11) { x, y ->
+          result = x + y
+      }
+      println(result)
+
+      reverseStringLambda("Hello") { str ->
+          str.reversed()
+          //  println(it.reversed())
+      }
 
 
+      reverse2("Mango") {
+          println(it.reversed())
+      }*/
+
+    /*val person = Person()
+    person.name = "ABC"
+    person.age = 23
+
+    person.startRunning()
+
+    with(person){
+        this.name = "XYZ"
+        age =33
+    }
+    person.startRunning()
+
+    person.apply {
+        name = "MNOP"
+        age = 25
+    }.startRunning()
+    */
+
+
+    val array = arrayOfNulls<Int>(5)
+    for (i in array.indices) {
+        array[i] = i * 1
+    }
+    println(Arrays.toString(array))
+
+    val array1 = Array(10) { i -> i * 2 }
+    println("Array1: ${Arrays.toString(array1.reversedArray())}")
+
+
+    val peopleList = listOf<Person>(Person("Suman",25),Person("Anjali",24),Person("Pooja",25))
+    val name = peopleList.filter { it.name.startsWith("A") }.map { it.name.toUpperCase() }
+    println(name)
+    val ageComparision = peopleList.filter { it.age>24 }.map { it.name.toUpperCase() }
+    println(ageComparision)
+}
+
+
+class Person(var name: String = "",
+             var age: Int = -1) {
+
+    fun startRunning() {
+        println("$name is running")
+    }
 }
